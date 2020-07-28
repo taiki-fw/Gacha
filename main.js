@@ -102,6 +102,5 @@ function gacha(a) {
 
 document.querySelector('#btn').onclick = function() {
   var num = Math.floor(Math.random() * 100) + 1;
-  console.log(num);
   gacha(num);
 };
