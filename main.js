@@ -1,30 +1,18 @@
-const img = document.querySelector('#getImg');
-const p = document.querySelector('#text');
+const img = document.querySelector("#getImg");
+const p = document.querySelector("#text");
+
+const rare1imgs = [
+  "rare1-1.png",
+  "rare1-2.png",
+  "rare1-3.png",
+  "rare1-4.png",
+  "rare1-5.png",
+];
 
 function rare1() {
-  var num = Math.floor(Math.random() * 5) + 1;
-  switch(num) {
-    case 1:
-      img.src="image/rare1-1.png";
-      p.innerHTML = "レア度１";
-      break;
-    case 2:
-      img.src = "image/rare1-2.png";
-      p.innerHTML = "レア度１";
-      break;
-    case 3:
-      img.src = "image/rare1-3.png";
-      p.innerHTML = "レア度１";
-      break;
-    case 4:
-      img.src = "image/rare1-4.png";
-      p.innerHTML = "レア度１";
-      break;
-    case 5:
-      img.src = "image/rare1-5.png";
-      p.innerHTML = "レア度１";
-      break;
-  }
+  const num = Math.floor(Math.random() * rare1imgs.length);
+  img.src = "image/" + rare1imgs[num];
+  p.textContent = "レア度１";
 }
 
 function rare2() {
@@ -89,18 +77,18 @@ function rare5() {
 function gacha(a) {
   if (a <= 100 && a >= 99) {
     rare5();
-  }else if(a <= 98 && a >= 91) {
+  } else if (a <= 98 && a >= 91) {
     rare4();
-  }else if(a <= 90 && a >= 71) {
+  } else if (a <= 90 && a >= 71) {
     rare3();
-  }else if(a <= 70 && a >= 41) {
+  } else if (a <= 70 && a >= 41) {
     rare2();
-  }else{
+  } else {
     rare1();
   }
 }
 
-document.querySelector('#btn').onclick = function() {
+document.querySelector("#btn").onclick = function () {
   var num = Math.floor(Math.random() * 100) + 1;
   gacha(num);
 };
